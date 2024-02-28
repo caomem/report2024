@@ -1,0 +1,110 @@
+% LaTeX definitions for Geometric Algebra typesetting.
+%
+% Copyright (c) 2017 Leandro Augusto Frata Fernandes
+%
+% author: Fernandes, Leandro A. F.
+% e-mail: laffernandes@ic.uff.br
+% home page: http://www.ic.uff.br/~laffernandes
+%
+% version  : Alpha 3.141592
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{galatex}[2017/05/18]
+
+
+% Misc symbols and commands definition.
+\def\abs{\qopname\relax o{abs}}
+\DeclareRobustCommand {\babs}[1]               {\left| #1 \right|}
+
+\DeclareMathSymbol    {\cross}                 {\mathbin}{symbols}{"02}
+
+%\DeclareRobustCommand {\cpoint}[1]             {\pmb{#1}}
+%\DeclareRobustCommand {\cvector}[1]            {\vec{\pmb{#1}}}
+\DeclareRobustCommand {\factorial}[1]          {#1{!}}
+
+
+% Geometric algebra symbols and commands definition.
+\def\grade{\qopname\relax o{grade}\!}
+\def\grau{\qopname\relax o{grau}\!}
+%\def\unit{\qopname\relax o{unit}\!}
+
+\DeclareMathSymbol    {\any}                   {\mathbin}{symbols}{"0E}
+\DeclareRobustCommand {\gp}                    {}
+\DeclareRobustCommand {\igp}                   {\mathbin{/}}
+\DeclareRobustCommand {\igpfrac}[2]            {\frac{#1}{#2}}
+%\DeclareRobustCommand {\cmp}                   {\pmb{\times}}
+\DeclareMathSymbol    {\deltap}                {\mathord}{operators}{"01}
+\DeclareMathSymbol    {\inner}                 {\mathbin}{symbols}{"01}
+\DeclareMathSymbol    {\interior}              {\mathbin}{operators}{"02}
+\DeclareMathSymbol    {\join}                  {\mathbin}{symbols}{"5B}
+\DeclareMathSymbol    {\lcont}                 {\mathbin}{symbols}{"63}
+\DeclareMathSymbol    {\meet}                  {\mathbin}{symbols}{"5C}
+\DeclareMathSymbol    {\op}                    {\mathbin}{symbols}{"5E}
+\DeclareMathSymbol    {\rcont}                 {\mathbin}{symbols}{"62}
+\DeclareMathSymbol    {\rp}                    {\mathbin}{symbols}{"5F}
+\DeclareMathSymbol    {\scp}                   {\mathbin}{symbols}{"03}
+
+\DeclareRobustCommand {\joinprod}              {\bigcup}
+\DeclareRobustCommand {\meetprod}              {\bigcap}
+\DeclareRobustCommand {\oprod}                 {\bigwedge}
+\DeclareRobustCommand {\rprod}                 {\bigvee}
+
+%\DeclareRobustCommand {\blade}[1]              {\pmb{\mathit{#1}}}%%
+\DeclareRobustCommand {\cliffordc}[1]          {\overline{#1}}%%
+\DeclareRobustCommand {\cobasis}[1]            {\underline{#1}}%%
+\DeclareRobustCommand {\complement}[1]         {\overline{#1}}%%
+\DeclareRobustCommand {\dual}[1]               {#1^{\ast}}%%
+\DeclareRobustCommand {\gradeinv}[1]           {\widehat{#1}\mspace{0mu}}%%
+\DeclareRobustCommand {\grassmann}[3]          {#1 \underset{#3}{\Delta} #2}%%
+\DeclareRobustCommand {\inverse}[1]            {#1^{-1}}%%
+\DeclareRobustCommand {\inv}[1]                {\inverse{#1}}%%
+\DeclareRobustCommand {\kblade}[2]             {\mathit{#1}_{\langle#2\rangle}}%%
+%\DeclareRobustCommand {\kvector}[2]            {\mathit{#1}_{\langle#2\rangle}}%%
+\DeclareRobustCommand {\mv}[1]                 {\mathit{#1}}%%
+\DeclareRobustCommand {\norm}[1]               {\left\| #1 \right\|}%%
+\DeclareRobustCommand {\reverse}[1]            {\widetilde{#1}\mspace{0mu}}%%
+\DeclareRobustCommand {\rotor}[1]              {\mathcal{#1}}%%
+\DeclareRobustCommand {\scalar}[1]             {#1}%%
+\DeclareRobustCommand {\sqrnorm}[1]            {\left\| #1 \right\|^{2}}%%
+\DeclareRobustCommand {\takegrade}[2]          {\left\langle #1 \right\rangle_{#2}}%%
+\DeclareRobustCommand {\undual}[1]             {#1^{-\ast}}%%
+\DeclareRobustCommand {\vector}[1]             {\mathit{#1}}%%
+\DeclareRobustCommand {\vectorei}[1]           {\mathit{e}_{#1}}%%
+\DeclareRobustCommand {\vectorep}              {\mathit{e}_{\scriptscriptstyle+}}%%
+\DeclareRobustCommand {\vectorem}              {\mathit{e}_{\scriptscriptstyle-}}%%
+\DeclareRobustCommand {\vectorni}              {\mathit{n}_{\scriptscriptstyle\infty}}%%
+\DeclareRobustCommand {\vectorno}              {\mathit{n}_{o}}%%
+\DeclareRobustCommand {\rvectorei}[1]          {\mathit{e}^{#1}}%%
+\DeclareRobustCommand {\versor}[1]             {\mathcal{#1}}%%
+
+
+% Metric, sets, and algebras.
+\DeclareRobustCommand {\lamatrix}[1]           {\mathrm{#1}}
+\DeclareRobustCommand {\metricfunc}[1]         {\mathsf{#1}}
+\DeclareRobustCommand {\metricmatrix}[1]       {\lamatrix{#1}}
+\DeclareRobustCommand {\transpose}[1]          {#1^{T}}
+
+\DeclareRobustCommand {\complexnumbers}        {\mathbb{C}}
+\DeclareRobustCommand {\integernumbers}        {\mathbb{Z}}
+\DeclareRobustCommand {\naturalnumbers}        {\mathbb{N}}
+\DeclareRobustCommand {\rationalnumbers}       {\mathbb{Q}}
+\DeclareRobustCommand {\realnumbers}           {\mathbb{R}}
+
+\DeclareRobustCommand {\affinespace}[1]        {\mathbb{A}^{#1}}
+\DeclareRobustCommand {\euclideanspace}[1]     {\mathbb{E}^{#1}}
+\DeclareRobustCommand {\projectivespace}[1]    {\mathbb{P}^{#1}}
+\DeclareRobustCommand {\vectorspace}[2][undefined]  {\ifthenelse{\equal{#1}{undefined}}{\mathbb{R}^{#2}}{\mathbb{R}_{#1}^{#2}}}
+
+\DeclareRobustCommand {\kvectorspace}[2]       {\bigwedge\nolimits^{\!#1}\mathbb{R}^{#2}}
+\DeclareRobustCommand {\multivectorspace}[1]   {\bigwedge\mathbb{R}^{#1}}
+
+\DeclareRobustCommand {\grassmannian}[2]       {\mathit{G}(#1,#2)}
+
+\DeclareRobustCommand {\nhemisphere}[2]        {\mathbb{H}_{#1}^{#2}}
+\DeclareRobustCommand {\nsphere}[2][undefined]  {\ifthenelse{\equal{#1}{undefined}}{\mathbb{S}^{#2}}{\mathbb{S}_{#1}^{#2}}}
+
+\DeclareRobustCommand {\cliffordalgebra}[3][undefined]  {\ifthenelse{\equal{#1}{undefined}}{\mathit{C}\!\ell_{#2,#3}}{\mathit{C}\!\ell_{#1,#2,#3}}}
+
+
+% End of the file galatex.sty
+\endinput

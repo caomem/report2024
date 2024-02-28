@@ -1,0 +1,251 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathabx}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{Blue}{rgb}{0,0,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\usepackage{esvect}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{blkarray}
+\newcommand\Mark[1]{\textsuperscript#1}
+\usepackage{pgfplots}
+\usepackage[english, ruled, linesnumbered]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{xltabular}
+\usepackage{blindtext}
+\usepackage{rccol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\usepackage{galatex}
+\usepackage{optidef}
+
+
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+	%
+	frame=lines,  % top and bottom rule only
+	framesep=2em, % separation between frame and text
+	rulecolor=\color{gray},
+	%
+	label=\fbox{\color{black}log.txt},
+	labelposition=topline,
+	%
+	commandchars=\|\(\), % escape character and argument delimiters for
+	% commands within the verbatim
+	commentchar=*        % comment character
+}
+
+\newcommand{\nucleoe}{\emph{\text{nu }}}
+\newcommand{\nucleo}{\text{nu }}
+\newcommand{\imageme}{\emph{\text{nu }}}
+\newcommand{\imagem}{\text{nu }}
+
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}{Lema}[section]
+\newtheorem{proposicao}{Proposição}[section]
+\newtheorem{corolario}{Corolário}[section]
+
+\theoremstyle{definition}
+\newtheorem{definicao}{Definição}[section]
+\newtheorem{observacao}{Observação}[section]
+\newtheorem{exemplo}{Exemplo}[section]
+
+\newenvironment{solucao}
+{\renewcommand\qedsymbol{$\triangle$}\begin{proof}[Solução]}{\end{proof}}
+
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+{\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape}
+{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+\title{Introdução aos Fundamentos de Geometria de Distância}
+\author{Guilherme Philippi\Mark{*}, orientado por Felipe Delfini Caetano Fidalgo\Mark{\dagger}\\Campus Blumenau\\Universidade Federal de Santa Catarina\\UFSC
+	\\g.philippi@grad.ufsc.br\Mark{*}, felipe.fidalgo@ufsc.br\Mark{\dagger}}
+\begin{document}
+	%\iffalse
+	\begin{titlepage}
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+		\center % Center everything on the page
+		%----------------------------------------------------------------------------------------
+		%	HEADING SECTIONS
+		%----------------------------------------------------------------------------------------
+		\begin{flushright}
+			\includegraphics[scale=0.35]{figures/cnpq-logo.png}	
+		\end{flushright}
+		\vspace{-2cm}
+		\begin{center}
+			\includegraphics[scale=0.22]{figures/logoufsc.jpg}
+		\end{center}
+		\vspace{1cm}
+		
+		\textsc{\LARGE \hspace{-0.17cm}Universidade Federal de Santa Catarina}\\[0.5cm] % Name of your university/college
+		{\Large Centro Tecnológico, de Ciências Exatas e Educação\\ Departamento de Matemática}\\[1.5cm] % Major heading such as course name
+		\textsc{\Large PIBIC \\ Relatório Final \vspace{1.5cm}  \\ }{\large Um estudo algébrico, geométrico e computacional de aplicações de Álgebras de Clifford e Geometria de Distâncias}\\[2.0cm] % Minor heading such as course title
+		
+		%\textsc{\LARGE Universidade Federal de Santa Catarina}\\[0.5cm] % Name of your university/college
+		%{\Large Centro de Blumenau \\ Departamento de Matemática}\\[1.5cm] % Major heading such as course name
+		%\textsc{\Large PIBIC \\ Programa Institucional de Bolsas de Iniciação Científica \vspace{1.5cm} \\ {\bf PROJETO DE PESQUISA}}\\[2.0cm] % Minor heading such as course title
+		
+		%----------------------------------------------------------------------------------------
+		%	TITLE SECTION
+		%----------------------------------------------------------------------------------------
+		
+		\HRule \\[0.4cm]
+		{ \LARGE \bfseries \textbf{Uma introdução à Otimização com aplicações em Aprendizado de Máquina}} \\ [0.4cm] % Title of your document
+		\HRule \\[2cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	AUTHOR SECTION
+		%----------------------------------------------------------------------------------------
+		
+		\begin{minipage}{1\textwidth}
+			\begin{center} \large
+				Guilherme Philippi (guilherme.philippi@hotmail.com),
+				\vspace{0.5cm}
+				\\
+				\underline{\textsc{Orientador:}} \vspace{0.2cm}
+				Felipe Delfini Caetano Fidalgo (felipe.fidalgo@ufsc.br).
+			\end{center}
+		\end{minipage} \\[2cm]
+		
+		
+		{\large \today} % Date, change the \today to a set date if you want to be precise
+		
+		
+		\vfill % Fill the rest of the page with whitespace
+		
+	\end{titlepage}
+	
+	% \newpage
+	% \pagenumbering{gobble}
+	% \vspace*{\fill}
+	% \begin{flushright}
+	% 	\textit{Feci quod potui, faciant meliora potentes.}
+	% \end{flushright}
+	
+	\newpage
+	\pagenumbering{roman}
+	
+	\chapter*{Agradecimentos}
+	
+	Agradecimentos...
+	
+	Agradecimentos especiais também ao CNPq pelo incentivo financeiro da bolsa PIBIC e à 
+	UFSC, por dar as condições de infraestrutura para que este projeto pudesse acontecer. 
+	
+	\vspace*{\fill}
+	\begin{flushright}
+		\textit{Feci quod potui, faciant meliora potentes.}
+	\end{flushright}
+	
+	\newpage
+	%\vspace{-1cm}
+	\tableofcontents
+	\newpage
+	
+	\begin{center}
+		\large
+		\textbf{Abstract}
+	\end{center}
+	
+	\noindent This report presents a study on ..., covering everything from ... to ... We developed ... validating the applicability of the theory and consolidating the study. This work aims to contribute to ... .
+	\\
+	
+	\noindent\textbf{Keywords:} ..., ..., ....
+	
+	
+	\vspace{2cm}	
+	\begin{center}
+		\large
+		\textbf{Resumo}
+	\end{center}
+	
+	\noindent Este relatório apresenta um estudo sobre ..., abordando desde ... até ... Desenvolvemos ... validando a aplicabilidade da teoria e consolidando o estudo. Este trabalho visa contribuir para ... .
+	\\
+	
+	\noindent\textbf{Palavras-chave:} ..., ..., ....
+
+	\newpage
+	\chapter{Introdução}\pagenumbering{arabic}
+	Parágrafos:
+	\begin{itemize}
+		\item Introduzir Otimização matemática;
+		\item Introduzir Aprendizado de Máquina;
+		\item Ligar os dois temas;
+		\item Apresentar a estrutura do trabalho.
+	\end{itemize}
+	
+	\newpage
+	
+	\chapter{Materiais e Métodos\label{sec:materiais}}
+		
+	\input{secOtimizacao/gphilippi.tex}
+	
+	\newpage
+
+	\input{secMachineLearning/gphilippi.tex}
+
+	\newpage
+	\chapter{Resultados e Discussão\label{sec:resultados}}
+	
+	Este capítulo apresenta uma pequena apresentação de simulações computacionais desenvolvidas pelo autor desse trabalho sobre os temas de estudo desse relatório, além dos softwares desenvolvidos para auxiliar nesse processo.
+	
+	\input{secResultados/gphilippi.tex}
+
+	\chapter{Considerações Finais\label{sec:conclusoes}}
+	{
+		Neste momento, é interessante recuperar o objetivo principal do projeto de pesquisa para avaliar se tudo foi concluído conforme planejado. O objetivo principal deste projeto era .
+		
+		Vamos agora revisitar os objetivos específicos e destacar as contribuições alcançadas:
+		
+		\begin{itemize}
+			\item \textit{blabla}: blablabla.
+			\item \textit{blabla}: blablabla.
+			\item \textit{blabla}: blablabla.
+			\item \textit{blabla}: blablabla.
+		\end{itemize}
+		
+		Dessa forma, acreditamos que os resultados deste projeto de pesquisa foram satisfatórios, abordando todos os tópicos planejados. Como projetos futuros, planejamos .
+		
+		Além disso, é importante destacar o impacto significativo deste projeto na formação acadêmica do aluno envolvido. Além de aproximá-lo da pós-graduação, proporcionou o contato com grupos de pesquisa que têm potencial para publicações na área. Esse envolvimento com pesquisadores estimula o aluno a considerar uma carreira acadêmica e a buscar oportunidades para lecionar no ensino superior.
+	}
+
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+	
+	\bibliographystyle{unsrt}
+	\bibliography{references.bib}
+	
+	%\iffalse\\
+	\newpage
+	\appendix	
+	%\input{appendix.tex}
+	
+	%\fi
+\end{document}
